@@ -1,9 +1,9 @@
-/**
- * Given cone height and radius (numbers). Evaluate volume of a cone
- * @param {number} h - height
- * @param {number} r - radius
- * @returns {number}
- */
 module.exports.volumeCone = function volumeCone(h, r) {
-  throw new Error('Not implemented');
+  if (typeof h !== 'number' || typeof r !== 'number') {
+    throw new Error('error type');
+  }
+
+  const volume = (1 / 3) * Math.PI * Math.pow(r, 2) * h;
+
+  return Math.round(volume * 100) / 100;
 };

@@ -1,9 +1,6 @@
-/**
- * Find a sum of two numbers
- * @param {number|string} firstNumber
- * @param {number|string} secondNumber
- * @returns {number}
- */
 module.exports.sumTwoNumbers = function sumTwoNumbers(firstNumber, secondNumber) {
-  throw new Error('Not implemented');
+  const num1 = Number(firstNumber.toString().replace(/\s+/g, '').trim());
+  const num2 = Number(secondNumber.toString().replace(/\s+/g, '').trim());
+
+  return num1 + num2;
 };

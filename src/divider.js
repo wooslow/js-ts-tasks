@@ -1,10 +1,13 @@
-/**
- * Given number n and number k. Find the whole part and the remainder of the integer division of n by k.
- * Return a string formatted "wholePart remainder"
- * @param {number} n - number
- * @param {number} k - number
- * @returns {number}
- */
 module.exports.divider = function divider(n, k) {
-  throw new Error('Not implemented');
+  if (typeof n !== 'number' || typeof k !== 'number') {
+    throw new Error('type error');
+  }
+  if (k === 0) {
+    throw new Error('division by zero');
+  }
+
+  const wholePart = Math.floor(n / k);
+  const remainder = n % k;
+
+  return `${wholePart} ${remainder}`;
 };
