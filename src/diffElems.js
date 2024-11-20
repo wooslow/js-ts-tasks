@@ -1,8 +1,9 @@
 /**
- * Write a function which inside given array of numbers counts amount of different elements.
- * @param {Object} arr
- * @returns {number}
+ * Counts the number of different elements in an array.
+ * @param {Array<number>} arr - The array of numbers.
+ * @returns {number} - The count of distinct elements in the array.
  */
 module.exports.diffElems = function diffElems(arr) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  const uniqueElements = new Set(arr);
+  return uniqueElements.size;
 };
