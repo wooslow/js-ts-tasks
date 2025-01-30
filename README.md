@@ -1,40 +1,64 @@
-# Tasks: 07 Typescript Basics
+# Tasks: 07 Typescript Classes
 
 ## Task description
 
-Here are several small tasks. Each of them is located in their own js files.
+Your task is to implement Generic CustomCache class.
 
-### converter.ts
+### Requirements
 
-Write a function converting temperature, weight and distance. Precision is 2 number after digits
+#### Create
 
-### getDaysToNewYear.ts
+Class can be created using `new CustomCache<K, V>(size)`, where `K` is type of key (string, number, etc) and `V` is a type of value (string, number, etc) and `size` is how many elements cache could contain
 
-Write a function to calculate the days left until the next New Year's eve (In 2023 the next NY is 1th January, 2024 year)
+Public methods to be supported:
 
-### groupUsers.ts
-
-Write a function to group two types of users into EMPLOYEE and CONTRACTOR groups
-
-A function should return an object consists of two arrays of grouped users:
-{
-    employees: [...]
-    contractors: [...]
+```ts
+class CustomCache<K, V> {
+  constructor(maxSize: number);
+  set(key: K, value: V): void;
+  get(key: K): V | undefined;
+  size(): number;
+  clear(): void;
 }
+```
 
-### pangram.ts
+#### Funcionality
 
-Write a function determining if the provided string/number is a pangram
+Each funcionality is covered by unit tests. You don't need to write it. Your task is to create public methods that are covering funcionality below.
 
-A string is a pangram if every lowercase letter of the alphabet (a, b, c, ... z) is used at least once
+##### Test 1: Set and get a value
 
-A number is a pangram if every digit number (0, 1, 2, ... 9) is used at least once
+Value should be retrievable after being set
+
+##### Test 2: Get should return undefined for non-existent keys
+
+Should return undefined for non-existent keys
+
+##### Test 3: Cache should evict the oldest item when exceeding max size
+
+Create cache with size 3. Add 4 elements. First element should be evicted. Remaining elements must be accessible (get method). Fourth element should be accessible
+
+##### Test 4: Cache size should not exceed max size
+
+Add more elements than the maximum size of a cache. Cache size should not exceed max size
+
+##### Test 5: Cache should update the access order on get
+
+Create cache with size 3. Add 3 elements. Get first element. Add one more element. Least recently accessed item should be evicted. Recently accessed item should still be in cache. Remaining items should still be accessible. Newest item should be accessible.
+
+##### Test 6: Clear should empty the cache
+
+Create cache with size 3. Add two elements. Clear cache. Cache should be empty after clear.
+
+##### Test 7: Cache should handle updating existing keys
+
+Create cache with size 3. Add one element. Update that element. Cache should return the updated value
 
 ## How to run tasks locally
 
 The following commands are useful to run your code locally
 
-## Once - install npm packages 
+## Once - install npm packages
 
 To run typescript code locally run first `npm ci` or `npm install`
 
@@ -54,3 +78,13 @@ A list of available commands is specified in `package.json` file in `scripts` se
 ## Commit message rules
 
 Please follow `Commit message rules` instructions provided on `main` branch.
+
+## Evaluation criterias - max 10 points
+
+- Test 1 passed - 3 points
+- Test 2 passed - 1 points
+- Test 3 passed - 1 points
+- Test 4 passed - 1 points
+- Test 5 passed - 1 points
+- Test 6 passed - 1 points
+- Test 7 passed - 2 points
