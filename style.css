@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #141D26;
+    font-family: "Source Sans 3", serif;
+
+}
+.main * {
+    background-color: #243447;
+}
+.main {
+    background-color: #243447;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 31px;
+    max-width: 600px;
+    max-height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 15px 60px #34517426;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile {
+    display: flex;
+    flex-direction:row ;
+}
+.profile .logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 22px;
+    object-fit: cover;
+}
+.profile .name {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 18px;
+}
+.profile .username {
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+}
+.logo img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    font-weight: 600;
+}
+.like {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+}
+.message a {
+    text-decoration: none;
+    color: #1DA1F2;
+}
+.message {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 15px 0;
+
+}
+.message p {
+    margin-inline-end: 50px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
