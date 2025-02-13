@@ -4,15 +4,9 @@
  * @returns Promise
  */
 module.exports.race = function race(promisesArray) {
-  return new Promise((resolve, reject) => {
-    if (!Array.isArray(promisesArray)) {
-      return reject(new TypeError('не список'));
-    }
-
-    for (const promise of promisesArray) {
-      Promise.resolve(promise)
-          .then(resolve)
-          .catch(reject);
-    }
-  });
+    return new Promise((resolve, reject) => {
+        promisesArray.forEach(promise => {
+            Promise.resolve(promise).then(resolve).catch(reject);
+        });
+    });
 };

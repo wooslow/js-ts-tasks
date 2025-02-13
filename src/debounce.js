@@ -7,16 +7,17 @@
  */
 
 module.exports.debounce = function debounce(fn, delay) {
+  let called = false;
   let timeout;
 
   return function (...args) {
-
-    clearTimeout(timeout);
-
-    timeout = setTimeout(() => {
+    if (!called) {
       fn.apply(this, args);
-
-    }, delay);
+      called = true;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        called = false;
+      }, delay);
+    }
   };
-
 };

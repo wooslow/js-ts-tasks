@@ -5,13 +5,16 @@
  *
  *@response {object}
  */
-
-module.exports.mockApi = function mockApi(response, delay = 1000) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(response);
-
-    }, delay);
-  });
-
+module.exports.mockApi = function mockApi(response, delay) {
+  return function (action) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (action === 'reject') {
+          reject;
+        } else {
+          resolve(response);
+        }
+      }, delay);
+    });
+  };
 };
